@@ -1,4 +1,4 @@
-# Distributed Tensorflow 1.2 Example 
+# Distributed Tensorflow Example 
 
 Using data parallelism with shared model parameters while updating parameters asynchronous. See comment for some changes to make the parameter updates synchronous (not sure if the synchronous part is implemented correctly though).
 
@@ -13,6 +13,16 @@ pc-01$ python example.py --job_name="ps" --task_index=0
 pc-02$ python example.py --job_name="worker" --task_index=0 
 pc-03$ python example.py --job_name="worker" --task_index=1 
 pc-04$ python example.py --job_name="worker" --task_index=2 
+```
+
+## Limit GPUs
+### in python
+```python
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
+```
+### in commmand line
+```python
+CUDA_VISIBLE_DEVICES= 1 python script.py
 ```
 
 More details here: [ischlag.github.io](http://ischlag.github.io/)
