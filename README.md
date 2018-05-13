@@ -21,8 +21,8 @@ pc-04$ python example.py --job_name="worker" --task_index=2
 os.environ["CUDA_VISIBLE_DEVICES"]="0"
 ```
 ### in commmand line
-```python
-CUDA_VISIBLE_DEVICES= 1 python script.py
+```bash
+CUDA_VISIBLE_DEVICES=1 python script.py
 ```
 
 More details here: [ischlag.github.io](http://ischlag.github.io/)
