@@ -6,7 +6,7 @@ Change the hardcoded host urls below with your own hosts.
 Run like this: 
 
 pc-01$ python dist.py --job_name="ps" --task_index=0
-pc-01$ python dist.py --job_name="ps" --task_index=0
+pc-01$ python dist.py --job_name="ps" --task_index=1
 
 pc-02$ python dist.py --job_name="worker" --task_index=0 
 pc-03$ python dist.py --job_name="worker" --task_index=1 
