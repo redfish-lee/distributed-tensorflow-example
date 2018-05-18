@@ -5,10 +5,12 @@ Trains a simple sigmoid neural network on mnist for 20 epochs on three machines 
 Change the hardcoded host urls below with your own hosts. 
 Run like this: 
 
-pc-01$ python example.py --job_name="ps" --task_index=0 
-pc-02$ python example.py --job_name="worker" --task_index=0 
-pc-03$ python example.py --job_name="worker" --task_index=1 
-pc-04$ python example.py --job_name="worker" --task_index=2 
+pc-01$ python dist.py --job_name="ps" --task_index=0
+pc-01$ python dist.py --job_name="ps" --task_index=0
+
+pc-02$ python dist.py --job_name="worker" --task_index=0 
+pc-03$ python dist.py --job_name="worker" --task_index=1 
+pc-04$ python dist.py --job_name="worker" --task_index=2 
 
 More details here: ischlag.github.io
 '''
@@ -20,10 +22,8 @@ import sys
 import time
 
 # cluster specification
-parameter_servers = ["pc-01:2222"]
-workers = [	"pc-02:2222", 
-			"pc-03:2222",
-			"pc-04:2222"]
+parameter_servers = ["localhost:2221", "localhost:2222"]
+workers = ["localhost:2241", "localhost:2242", "localhost:2243"]
 cluster = tf.train.ClusterSpec({"ps":parameter_servers, "worker":workers})
 
 # input flags
